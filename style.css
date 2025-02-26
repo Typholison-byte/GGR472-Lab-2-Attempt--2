@@ -1,0 +1,23 @@
+.map-container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+body {
+    background-color: aqua;
+    color: blue;
+    margin: 20px; 
+    padding: 20px; 
+    
+}
+
+.text-left-margin {
+    margin-left: 10px;
+}
+
+h1 {
+    color: purple;
+}
+
