@@ -4,7 +4,7 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "Yonge-University Subway Line",
+                "name": "Yonge-University Subway Line (Yonge Side)",
                 "stroke": "#f2ea02",
                 "stroke-width": 5,
                 "stroke-opacity": 1
@@ -90,6 +90,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "Sheppard Subway Line",
                 "stroke": "#a20acd",
                 "stroke-width": 5,
                 "stroke-opacity": 1
@@ -116,6 +117,7 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "Yonge-University Subway Line (University Side)",
                 "stroke": "#f2ea02",
                 "stroke-width": 4,
                 "stroke-opacity": 1

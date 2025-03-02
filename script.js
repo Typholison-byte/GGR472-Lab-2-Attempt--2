@@ -24,7 +24,18 @@ map.on('load', () => {
                 }
             }]
         }
-    }); map.addLayer({
+
+
+    });
+
+    // Add a data source from a GeoJSON file 
+    map.addSource('GO-Stations', {
+        type: 'geojson',
+        url: 'mapbox://lakeerie.3hw6tqvt', // Update to your mapbox tileset ID
+        data: 'https://raw.githubusercontent.com/Typholison-byte/GGR472-Lab-2-Attempt--2/refs/heads/main/Data/GO%20Stations.geojson' // Your URL to your buildings.geojson file 
+    });
+
+    map.addLayer({
         'id': 'uoft-pnt',
         'type': 'circle',
         'source': 'uoft-data',
@@ -33,41 +44,60 @@ map.on('load', () => {
         }
     });
 
-    // Add a data source from a GeoJSON file 
-    map.addSource('GO-Stations', {
-        type: 'geojson', 
-        data: 'Data/GO Stations.geojson' // Your URL to your buildings.geojson file 
-    });
-
+    // Add the layer to display the stations
     map.addLayer({
-        'id': 'GO-Stations',
+        'id': 'GO-Stations-layer',
         'type': 'circle',
         'source': 'GO-Stations',
         'paint': {
-            'circle-radius': 5,
-            'circle-color': '#007cbf'
+            'circle-radius': 6,
+            'circle-color': '#007cbf',
+            'circle-stroke-width': 2,
+            'circle-stroke-color': '#ffffff'
         }
     });
 
-    // Add a data source from a Mapbox tileset    
-    map.addSource('...', { // Create your own source ID         
-        'type': 'vector',
-        'url': 'mapbox://username.…' // Update to your mapbox tileset ID     
+    map.addSource('GGR472_Subway_Lines', {
+        type: 'geojson',
+        url: 'mapbox://lakeerie.8a5dnqig', // Update to your mapbox tileset ID
+        data: 'https://raw.githubusercontent.com/Typholison-byte/GGR472-Lab-2-Attempt--2/refs/heads/main/Data/GGR472_Subway_Lines.geojson' // Your URL to your buildings.geojson file 
     });
+
     map.addLayer({
-        'id': '...', // Create your own layer ID         
-        'type': 'fill', // Note this is different to point data         
-        'source': '...', // Must match source ID from addSource Method         
+        'id': 'GGR472_Subway_Lines-layer',
+        'type': 'line',
+        'source': 'GGR472_Subway_Lines',
         'paint': {
-            'fill-color': '#888888', // Test alternative colours and style properties             
-            'fill-opacity': 0.4,
-            'fill-outline-color': 'black'
-        },
-        'source-layer': '...' // Tileset NAME (diff to ID), get this from mapbox tileset page     
-    }, 'uoft-buildings' // Drawing order - places layer below points         
-    // // Here the addlayer method takes 2 arguments (the layer as an object and a string for another layer's name). If the other layer already exists, the new layer will be drawn before that one     
-    ); 
+            'line-color': '#007cbf',
+            'line-width': 2,
+            'line-opacity': '#ffffff'
+        }
+    })
+
 });
+
+
+/*
+// Add a data source from a Mapbox tileset    
+map.addSource('...', { // Create your own source ID         
+    'type': 'vector',
+    'url': 'mapbox://username.…' // Update to your mapbox tileset ID     
+});
+map.addLayer({
+    'id': '...', // Create your own layer ID         
+    'type': 'fill', // Note this is different to point data         
+    'source': '...', // Must match source ID from addSource Method         
+    'paint': {
+        'fill-color': '#888888', // Test alternative colours and style properties             
+        'fill-opacity': 0.4,
+        'fill-outline-color': 'black'
+    },
+    'source-layer': '...' // Tileset NAME (diff to ID), get this from mapbox tileset page     
+}, 'uoft-buildings' // Drawing order - places layer below points         
+// // Here the addlayer method takes 2 arguments (the layer as an object and a string for another layer's name). If the other layer already exists, the new layer will be drawn before that one     
+); 
+});
+*/
 
 
 /*
